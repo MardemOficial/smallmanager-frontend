@@ -1,0 +1,10 @@
+.SecondaryButton {
+    background-color: #FFF;
+    color: #4A4646;
+    border: 1px solid #4A4646;
+}
+
+.SecondaryButton:hover {
+    background-color: #4A4646;
+    color: #FFF;
+}

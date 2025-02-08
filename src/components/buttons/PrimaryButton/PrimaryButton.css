@@ -1,0 +1,11 @@
+.PrimaryButton {
+    background-color: #D61E1E;
+    color: #FFF;
+    border: none;
+}
+
+.PrimaryButton:hover {
+    background-color: #FFF;
+    color: #D61E1E;
+    border: 1px solid #D61E1E;
+}
