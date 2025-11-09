@@ -1,0 +1,37 @@
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    form{
+        width: 30%;
+    }
+
+    #header-login{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #input-login{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #button-login{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+}
+
+#button-login{
+    button{
+        width: 100%;
+    }
+}
