@@ -2,16 +2,15 @@
     <mat-card appearance="outlined">
         <mat-card-header id="header-login">
             <mat-card-title> Smallmanged </mat-card-title>
-            <mat-card-subtitle>Realize o login</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content id="input-login">
             <mat-form-field appearance="outline">
                 <mat-label>Login</mat-label>
-            <input matInput formControlName="username">
+            <input required matInput formControlName="username">
             </mat-form-field >
             <mat-form-field appearance="outline">
                 <mat-label>Senha</mat-label>
-                <input type="password" matInput formControlName="password">
+                <input required type="password" matInput formControlName="password">
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions id="button-login">

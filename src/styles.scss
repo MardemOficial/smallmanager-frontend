@@ -42,4 +42,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include mat.card-overrides((
     outlined-container-color: #FFF,
   ));
+  @include mat.table-overrides((
+    background-color: #FFF,
+    header-container-height: 30px,
+    row-item-container-height: 30px,
+  ));
 }
+
