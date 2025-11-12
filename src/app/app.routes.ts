@@ -5,6 +5,8 @@ import { ProdutoComponent } from './pages/produto/produto.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { UserFormComponent } from './pages/user/user-form/user-form.component';
 import { HomeComponent } from './shared/home/home.component'
+import { PositionListComponent } from './pages/position/position-list.component/position-list.component';
+import { PositionFormComponent } from './pages/position/position-form.component/position-form.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -13,9 +15,13 @@ export const routes: Routes = [
     {path: 'home' ,component: HomeComponent, children: [
            {path: 'dashboard', component: DashboardComponent},
            {path: 'produto', component: ProdutoComponent},
-           {path: 'usuario', children: [
+           {path: 'user', children: [
                 { path: '', component: UserListComponent },
-                { path: 'formulario', component: UserFormComponent },
+                { path: 'form', component: UserFormComponent },
+           ]},
+            {path: 'position', children: [
+                { path: '', component: PositionListComponent },
+                { path: 'form', component: PositionFormComponent },
            ]},
     ]},
 ];
