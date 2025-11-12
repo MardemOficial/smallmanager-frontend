@@ -7,25 +7,38 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { UsuarioInterface } from '../usuario.interface';
 import { UsuarioListInterface } from '../usuario-list.interface';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaginationClass } from '../../../classes/pagination.class';
 
 @Component({
   selector: 'sm-user-list',
-  imports: [RouterModule, MatTableModule, MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule],
+  imports: [
+    RouterModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatPaginatorModule,
+  ],
   templateUrl: './user-list.html',
   styleUrls: ['./user-list.scss'],
 })
-export class UserListComponent implements OnInit{
-
-  listUser: UsuarioInterface[] = [{name: 'Mardem'}];
+export class UserListComponent implements OnInit {
+  listUser: UsuarioInterface[] = [{ name: 'Mardem' }];
   listUserData!: UsuarioListInterface;
 
-  constructor(private usuarioService: UsuarioService, private snackBar: MatSnackBar){}
+  constructor(
+    private usuarioService: UsuarioService,
+    private snackBar: MatSnackBar,
+    private paginationClass: PaginationClass
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     // this.usuarioService.userList().subscribe((user) => {
     //   next:  {
     //     this.listUserData = user as UsuarioListInterface;
@@ -40,9 +53,4 @@ export class UserListComponent implements OnInit{
     //   }
     // });
   }
-
-  // goToUserForm(){
-  //    this.router.navigate(['formulario']);
-  // }
-
 }

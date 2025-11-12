@@ -26,12 +26,18 @@
   <tr mat-header-row *matHeaderRowDef="['name']"></tr>
   <tr mat-row *matRowDef="let row; columns: ['name']"></tr>
 </table>
+<mat-paginator [length]="50"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10]"
+              itemsPerPageLabel="Itens por página"
+              aria-label="Selecione a página">
+</mat-paginator>
 } @placeholder {
   <p>Buscando a lista de usuários!</p>
 }
 
 <section>
   <div class="button-redirect-pesquisar-usuario">
-    <a matButton="filled" routerLink="formulario">Cadastrar</a>
+    <a matButton="filled" routerLink="form">Cadastrar</a>
   </div>
 </section>
