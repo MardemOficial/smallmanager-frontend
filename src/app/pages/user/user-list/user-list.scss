@@ -1,0 +1,29 @@
+:host{
+    section {
+        display: flex;
+        justify-content: end;
+        margin-top: 1%;
+    }
+
+    h2 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+#card-pesquisar-usuario{
+    margin-bottom: 1%;
+}
+
+#title-pesquisar-usuario{
+    font-size: medium;
+}
+
+#button-pesquisar-usuario{
+    justify-content: end;
+}
+
+#input-pesquisar-usuario{
+    width: 30vw;
+}
+

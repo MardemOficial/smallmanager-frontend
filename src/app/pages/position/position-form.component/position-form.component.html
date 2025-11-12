@@ -1,0 +1,22 @@
+<h2>Formulário de cargos</h2>
+<form>
+    <mat-card appearance="outlined">
+
+        <mat-card-header>
+          <mat-card-title class="header-register-position">Dados do cargo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content >
+          <mat-form-field id="input-position" appearance="outline">
+              <mat-label>Cargo</mat-label>
+              <input required matInput placeholder="Gerente" >
+          </mat-form-field >
+
+        </mat-card-content>
+
+        <mat-card-actions >
+            <button mat-raised-button matButton="outlined" type="submit" (click)="goBack()">Voltar</button>
+            <button mat-raised-button matButton="filled" type="submit">Salvar</button>
+        </mat-card-actions>
+
+    </mat-card>
+</form>
