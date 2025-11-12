@@ -1,0 +1,22 @@
+:host {
+  section {
+    display: flex;
+    justify-content: end;
+    margin-top: 1%;
+  }
+  form mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+
+  #input-payrolltaxe-description {
+    width: 40vw;
+  }
+  .mat-mdc-card-actions {
+    justify-content: end;
+  }
+
+  .header-register-payrolltaxe {
+    font-size: medium;
+  }
+
+}

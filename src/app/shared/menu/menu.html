@@ -1,34 +1,45 @@
 <nav class="menu">
-  <button matButton [matMenuTriggerFor]="vendas"> <mat-icon>point_of_sale</mat-icon> Vendas</button>
-  <button matButton [matMenuTriggerFor]="gerenciaDeMaterias"> <mat-icon>shopping_bag</mat-icon> Produtos </button>
-  <button matButton [matMenuTriggerFor]="rh"> <mat-icon>group</mat-icon> RH</button>
-  <button matButton routerLink="dashboard" > <mat-icon>analytics</mat-icon>  Relatórios</button>
-  <button matButton > <mat-icon>settings</mat-icon> Configurações</button>
+  <button matButton [matMenuTriggerFor]="vendas"><mat-icon>point_of_sale</mat-icon> Vendas</button>
+  <button matButton [matMenuTriggerFor]="gerenciaDeMaterias">
+    <mat-icon>shopping_bag</mat-icon> Produtos
+  </button>
+  <button matButton [matMenuTriggerFor]="rh"><mat-icon>group</mat-icon> RH</button>
+  <button matButton routerLink="dashboard"><mat-icon>analytics</mat-icon> Relatórios</button>
+  <button matButton><mat-icon>settings</mat-icon> Configurações</button>
 
-  <mat-menu #vendas="matMenu" xPosition="before"> 
-    <button mat-menu-item > <mat-icon>shopping_cart</mat-icon> Pedido</button>
-    <button mat-menu-item > <mat-icon>receipt_long</mat-icon> Fechar conta</button>
-    <button mat-menu-item > <mat-icon>delivery_dining</mat-icon> Delivery</button>
-    <button mat-menu-item > <mat-icon>person_add</mat-icon> Cadastrar Cliente</button>
-    <button mat-menu-item > <mat-icon>point_of_sale</mat-icon> Caixa</button>
+  <mat-menu #vendas="matMenu" xPosition="before">
+    <button mat-menu-item><mat-icon>shopping_cart</mat-icon> Pedido</button>
+    <button mat-menu-item><mat-icon>receipt_long</mat-icon> Fechar conta</button>
+    <button mat-menu-item><mat-icon>delivery_dining</mat-icon> Delivery</button>
+    <button mat-menu-item><mat-icon>person_add</mat-icon> Cadastrar Cliente</button>
+    <button mat-menu-item><mat-icon>point_of_sale</mat-icon> Caixa</button>
   </mat-menu>
 
-  <mat-menu #gerenciaDeMaterias="matMenu" xPosition="before"> 
-    <button mat-menu-item routerLink="produto"> <mat-icon>shopping_bag</mat-icon>Produtos</button>
-    <button mat-menu-item ><mat-icon>pallet</mat-icon> Materia-prima</button>
-    <button mat-menu-item > <mat-icon>science</mat-icon>Insumos</button>
-    <button mat-menu-item [matMenuTriggerFor]="estoque"> <mat-icon>warehouse</mat-icon>Estoque</button>
+  <mat-menu #gerenciaDeMaterias="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="produto"><mat-icon>shopping_bag</mat-icon>Produtos</button>
+    <button mat-menu-item><mat-icon>pallet</mat-icon> Materia-prima</button>
+    <button mat-menu-item><mat-icon>science</mat-icon>Insumos</button>
+    <button mat-menu-item [matMenuTriggerFor]="estoque">
+      <mat-icon>warehouse</mat-icon>Estoque
+    </button>
   </mat-menu>
-  <mat-menu #estoque="matMenu" xPosition="before"> 
-    <button mat-menu-item > <mat-icon>arrow_circle_down</mat-icon>Entradas</button>
-    <button mat-menu-item > <mat-icon>arrow_circle_up</mat-icon>Saída</button>
-    <button mat-menu-item > <mat-icon>sync_alt</mat-icon>Ajustes</button>
-    <button mat-menu-item > <mat-icon>analytics</mat-icon>Relatórios</button>
+  <mat-menu #estoque="matMenu" xPosition="before">
+    <button mat-menu-item><mat-icon>arrow_circle_down</mat-icon>Entradas</button>
+    <button mat-menu-item><mat-icon>arrow_circle_up</mat-icon>Saída</button>
+    <button mat-menu-item><mat-icon>sync_alt</mat-icon>Ajustes</button>
+    <button mat-menu-item><mat-icon>analytics</mat-icon>Relatórios</button>
   </mat-menu>
-  <mat-menu #rh="matMenu" xPosition="before"> 
-    <button mat-menu-item routerLink="user"> <mat-icon>person</mat-icon>Usuário</button>
-    <button mat-menu-item > <mat-icon>group</mat-icon>Colaborador</button>
-    <button mat-menu-item routerLink="position"> <mat-icon>supervisor_account</mat-icon>Função</button>
-    <button mat-menu-item routerLink="benefit"> <mat-icon>credit_card_heart</mat-icon>Benefícios</button>
+  <mat-menu #rh="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="user"><mat-icon>person</mat-icon>Usuário</button>
+    <button mat-menu-item><mat-icon>group</mat-icon>Colaborador</button>
+    <button mat-menu-item routerLink="position">
+      <mat-icon>supervisor_account</mat-icon>Função
+    </button>
+    <button mat-menu-item routerLink="payrolltaxe">
+      <mat-icon>request_quote</mat-icon>Encargos
+    </button>
+    <button mat-menu-item routerLink="benefit">
+      <mat-icon>credit_card_heart</mat-icon>Benefícios
+    </button>
   </mat-menu>
 </nav>
