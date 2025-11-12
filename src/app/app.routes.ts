@@ -9,6 +9,8 @@ import { PositionListComponent } from './pages/position/position-list.component/
 import { PositionFormComponent } from './pages/position/position-form.component/position-form.component';
 import { BenefitListComponent } from './pages/benefit/benefit-list.component/benefit-list.component';
 import { BenefitFormComponent } from './pages/benefit/benefit-form.component/benefit-form.component';
+import { PayrolltaxesFormComponent } from './pages/payrollTaxes/payrolltaxes-form.component/payrolltaxes-form.component';
+import { PayrolltaxesListComponent } from './pages/payrollTaxes/payrolltaxes-list.component/payrolltaxes-list.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -38,6 +40,13 @@ export const routes: Routes = [
         children: [
           { path: '', component: BenefitListComponent },
           { path: 'form', component: BenefitFormComponent },
+        ],
+      },
+      {
+        path: 'payrolltaxe',
+        children: [
+          { path: '', component: PayrolltaxesListComponent },
+          { path: 'form', component: PayrolltaxesFormComponent },
         ],
       },
     ],

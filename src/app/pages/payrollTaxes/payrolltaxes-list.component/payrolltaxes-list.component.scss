@@ -1,0 +1,23 @@
+:host {
+  section {
+    display: flex;
+    justify-content: end;
+    margin-top: 1%;
+  }
+
+  #button-search-payrolltaxes {
+    justify-content: end;
+  }
+
+  #card-search-payrolltaxes {
+    margin-bottom: 1%;
+  }
+
+  #title-search-payrolltaxes {
+    font-size: medium;
+  }
+
+  #input-search-payrolltaxes {
+    width: 30vw;
+  }
+}

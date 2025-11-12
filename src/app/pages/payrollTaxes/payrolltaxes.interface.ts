@@ -1,5 +1,4 @@
 import { ContribuitionInterface } from '../../interfaces/contribuition.interface';
 
-export interface BenefitInterface extends ContribuitionInterface {
-
+export interface PayrolltaxesInterface extends ContribuitionInterface {
 }
