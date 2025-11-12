@@ -1,3 +1,12 @@
+:host{
+    section {
+        display: flex;
+        justify-content: end;
+        margin-top: 1%;
+    }
+
+}
+
 .mat-mdc-card-actions {
     justify-content: end;
 }
@@ -6,6 +15,6 @@
     font-size: medium;
 }
 
-#input-position{
+#input-position, #select-permission{
     width: 30%;
 }

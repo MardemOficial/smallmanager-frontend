@@ -12,6 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    { provide: MatPaginatorIntl, useClass: PaginationClass }
+    { provide: MatPaginatorIntl, useClass: PaginationClass },
   ]
 };
