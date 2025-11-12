@@ -1,0 +1,32 @@
+<h2>Formulário de benefícios</h2>
+<form [formGroup]="benefitGroup">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="header-register-benefit">Dados do benefício</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field id="input-benefit-name" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input required matInput placeholder="Vale transporte" formControlName="name" />
+      </mat-form-field>
+      <mat-form-field id="input-benefit-value" appearance="outline">
+        <mat-label>Valor</mat-label>
+        <input required matInput placeholder="150,30" formControlName="value"/>
+        <span matTextPrefix>R$&nbsp;</span>
+      </mat-form-field>
+      <mat-form-field id="input-benefit-description" appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input required matInput placeholder="Benefícios para transporte diário." formControlName="description" />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <section>
+    <div class="button-redirect-search-benefit">
+      <button mat-raised-button matButton="outlined" type="submit" (click)="goBack()">
+        Voltar
+      </button>
+      <button mat-raised-button matButton="filled" type="submit">Salvar</button>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,23 @@
+:host {
+  section {
+    display: flex;
+    justify-content: end;
+    margin-top: 1%;
+  }
+
+  #button-search-benefit {
+    justify-content: end;
+  }
+
+  #card-search-benefit {
+    margin-bottom: 1%;
+  }
+
+  #title-search-benefit {
+    font-size: medium;
+  }
+
+  #input-search-benefit {
+    width: 30vw;
+  }
+}
