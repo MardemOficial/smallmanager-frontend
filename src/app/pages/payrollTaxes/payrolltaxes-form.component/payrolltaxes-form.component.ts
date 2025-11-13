@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'sm-payrolltaxes-form.component',
-  imports: [    ReactiveFormsModule,
+  imports: [
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule,],
+    MatCardModule,
+  ],
   templateUrl: './payrolltaxes-form.component.html',
   styleUrl: './payrolltaxes-form.component.scss',
 })
@@ -24,7 +26,7 @@ export class PayrolltaxesFormComponent {
     value: new FormControl('', Validators.required),
   });
 
-    constructor(private router:Router){}
+  constructor(private router: Router) {}
 
   goBack() {
     this.router.navigate(['/home/payrolltaxe']);

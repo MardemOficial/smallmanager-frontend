@@ -13,6 +13,8 @@ import { PayrolltaxesFormComponent } from './pages/payrollTaxes/payrolltaxes-for
 import { PayrolltaxesListComponent } from './pages/payrollTaxes/payrolltaxes-list.component/payrolltaxes-list.component';
 import { EmployeeListComponent } from './pages/employee/employee-list.component/employee-list.component';
 import { EmployeeFormComponent } from './pages/employee/employee-form.component/employee-form.component';
+import { MaterialFormComponent } from './pages/materials/material-form.component/material-form.component';
+import { MaterialListComponent } from './pages/materials/material-list.component/material-list.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -24,6 +26,13 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'produto', component: ProdutoComponent },
       {
+        path: 'material',
+        children: [
+          { path: '', component: MaterialListComponent },
+          { path: 'form', component: MaterialFormComponent },
+        ],
+      },
+      {
         path: 'user',
         children: [
           { path: '', component: UserListComponent },
@@ -34,7 +43,7 @@ export const routes: Routes = [
         path: 'employee',
         children: [
           { path: '', component: EmployeeListComponent },
-          { path: 'form', component: EmployeeFormComponent},
+          { path: 'form', component: EmployeeFormComponent },
         ],
       },
       {
