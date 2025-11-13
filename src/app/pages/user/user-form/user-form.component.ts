@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { EmployeeInterface } from '../../../interfaces/employee.interface';
+import { EmployeeInterface } from '../../employee/employee.interface';
 
 
 @Component({
@@ -24,8 +24,8 @@ import { EmployeeInterface } from '../../../interfaces/employee.interface';
 export class UserFormComponent {
 
   employeeList: EmployeeInterface[] = [
-    {name: "Mardem", position:"Engenheiro de software"},
-    {name: "Maria Clara", position:"Engenheira de Produção"}
+    {people: {name: "Mardem"}, position: {label: "Gerente", description : "Engenheiro de software"}},
+    {people: {name: "Maria Clara"}, position: {label: "Administradora", description : "Engenheiro de produção"}},
   ]
 
   constructor(private router: Router){}

@@ -11,6 +11,8 @@ import { BenefitListComponent } from './pages/benefit/benefit-list.component/ben
 import { BenefitFormComponent } from './pages/benefit/benefit-form.component/benefit-form.component';
 import { PayrolltaxesFormComponent } from './pages/payrollTaxes/payrolltaxes-form.component/payrolltaxes-form.component';
 import { PayrolltaxesListComponent } from './pages/payrollTaxes/payrolltaxes-list.component/payrolltaxes-list.component';
+import { EmployeeListComponent } from './pages/employee/employee-list.component/employee-list.component';
+import { EmployeeFormComponent } from './pages/employee/employee-form.component/employee-form.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -26,6 +28,13 @@ export const routes: Routes = [
         children: [
           { path: '', component: UserListComponent },
           { path: 'form', component: UserFormComponent },
+        ],
+      },
+      {
+        path: 'employee',
+        children: [
+          { path: '', component: EmployeeListComponent },
+          { path: 'form', component: EmployeeFormComponent},
         ],
       },
       {

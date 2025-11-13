@@ -8,11 +8,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
 import { PaginationClass } from '../../../classes/pagination.class';
-import { PayrolltaxesService } from '../payrolltaxes.service';
-import { PayrolltaxesInterface } from '../payrolltaxes.interface';
+import { EmployeeService } from '../employee.service';
+import { EmployeeInterface } from '../employee.interface';
 
 @Component({
-  selector: 'sm-payrolltaxes-list.component',
+  selector: 'sm-employee-list.component',
   imports: [
     RouterModule,
     MatTableModule,
@@ -22,17 +22,18 @@ import { PayrolltaxesInterface } from '../payrolltaxes.interface';
     MatButtonModule,
     MatPaginatorModule,
   ],
-  templateUrl: './payrolltaxes-list.component.html',
-  styleUrl: './payrolltaxes-list.component.scss',
+  templateUrl: './employee-list.component.html',
+  styleUrl: './employee-list.component.scss',
 })
-export class PayrolltaxesListComponent {
-  payrolltaxesList: PayrolltaxesInterface[] = [
-    { id: "1", name: 'INSS', value: 100, description: 'Previdência' },
-    { id: "2", name: 'FGTS', value: 235.35, description: 'Fundo de garantia' },
+export class EmployeeListComponent {
+  
+  listEmployee: EmployeeInterface[] = [
+    { people: { name: 'João' }, position: { label: 'Gerente', description: 'Cuida de tudo' } },
+    { people: { name: 'Maria' }, position: { label: 'Atendente', description: 'Atende tudo' } },
   ];
 
   constructor(
-    private payrolltaxesService: PayrolltaxesService,
+    private employeeService: EmployeeService,
     private snackBar: MatSnackBar,
     private paginationClass: PaginationClass
   ) {}

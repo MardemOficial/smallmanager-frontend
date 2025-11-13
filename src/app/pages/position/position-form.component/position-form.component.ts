@@ -28,12 +28,12 @@ import { PermissionInterface } from '../../../interfaces/permission.interface';
 })
 export class PositionFormComponent {
   listPermission: PermissionInterface[] = [
-    { id: 10, label: 'ROLE_RH', describe: 'RH' },
-    { id: 20, label: 'ROLE_ADMIN', describe: 'ADMINISTRATIVO' },
-    { id: 30, label: 'ROLE_USER', describe: 'USUÁRIO' },
-    { id: 40, label: 'ROLE_MATERIAL', describe: 'MATERIA-PRIMA' },
-    { id: 50, label: 'ROLE_PRODUCT', describe: 'PRODUTOS' },
-    { id: 60, label: 'ROLE_PEOPLE', describe: 'PESSOA' },
+    { id: "10", label: 'ROLE_RH', describe: 'RH' },
+    { id: "20", label: 'ROLE_ADMIN', describe: 'ADMINISTRATIVO' },
+    { id: "30", label: 'ROLE_USER', describe: 'USUÁRIO' },
+    { id: "40", label: 'ROLE_MATERIAL', describe: 'MATERIA-PRIMA' },
+    { id: "50", label: 'ROLE_PRODUCT', describe: 'PRODUTOS' },
+    { id: "60", label: 'ROLE_PEOPLE', describe: 'PESSOA' },
   ];
   listPermissionForPosition = signal<PermissionInterface[]>([]);
   permissionSelected = new FormControl<PermissionInterface | null>(null);

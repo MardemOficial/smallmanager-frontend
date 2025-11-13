@@ -1,0 +1,23 @@
+:host {
+  section {
+    display: flex;
+    justify-content: end;
+    margin-top: 1%;
+  }
+
+  #button-search-employee {
+    justify-content: end;
+  }
+
+  #card-search-employee {
+    margin-bottom: 1%;
+  }
+
+  #title-search-employee {
+    font-size: medium;
+  }
+
+  #input-search-employee {
+    width: 30vw;
+  }
+}
