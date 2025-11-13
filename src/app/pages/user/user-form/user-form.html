@@ -9,7 +9,7 @@
             <mat-label >Selecione o colaborador</mat-label>
               <mat-select>
                 @for(employee of employeeList; track employee) {
-                <mat-option [value]="employee.position">{{employee.name}}</mat-option>
+                <mat-option [value]="employee.position">{{employee.people.name}}</mat-option>
                 }
               </mat-select>
           </mat-form-field>

@@ -27,8 +27,8 @@ import { BenefitService } from '../benefit.service';
 })
 export class BenefitListComponent {
   listBenefit: BenefitInterface[] = [
-    { id: 1, name: 'VALE ALIMENTAÇÃO', value: 500.53, description: 'Alimentação diárias' },
-    { id: 2, name: 'VALE TRANSPORTE', value: 150.33, description: 'Transporte diário' },
+    { id: "1", name: 'VALE ALIMENTAÇÃO', value: 500.53, description: 'Alimentação diárias' },
+    { id: "2", name: 'VALE TRANSPORTE', value: 150.33, description: 'Transporte diário' },
   ];
 
   constructor(
