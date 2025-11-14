@@ -1,4 +1,3 @@
-
 // Include theming for Angular Material with `mat.theme()`.
 // This Sass mixin will define CSS variables that are used for styling Angular Material
 // components according to the Material 3 design spec.
@@ -7,14 +6,16 @@
 @use '@angular/material' as mat;
 
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$red-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$red-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
 }
 
 body {
@@ -26,7 +27,7 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
 
@@ -35,34 +36,47 @@ body {
 }
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
 :root {
-  @include mat.card-overrides((
-    outlined-container-color: #FFF,
-  ));
-  @include mat.table-overrides((
-    background-color: #FFF,
-    header-container-height: 30px,
-    row-item-container-height: 30px,
-  ));
-    @include mat.paginator-overrides((
-    container-background-color: #FFF,
-  ));
+  @include mat.card-overrides(
+    (
+      outlined-container-color: #fff,
+      title-text-size: medium,
+    )
+  );
+  @include mat.table-overrides(
+    (
+      background-color: #fff,
+      header-container-height: 30px,
+      row-item-container-height: 30px,
+    )
+  );
+  @include mat.paginator-overrides(
+    (
+      container-background-color: #fff,
+    )
+  );
 }
 .logo {
   width: 100%;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 .mat-mdc-card-actions {
@@ -73,6 +87,12 @@ form mat-form-field + mat-form-field {
   margin-left: 8px;
 }
 
-#header-register, #header-search {
-  font-size: medium;
+#card-search {
+  margin-bottom: 1%;
+}
+
+.button-redirect-registre {
+  display: flex;
+  justify-content: end;
+  margin-top: 1%;
 }

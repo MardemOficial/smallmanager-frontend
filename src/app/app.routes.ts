@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ProdutoComponent } from './pages/produto/produto.component';
+import { ProductFormComponent } from './pages/product/product-form.component/product-form.component';
+import { ProductListComponent } from './pages/product/product-list.component/product-list.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { UserFormComponent } from './pages/user/user-form/user-form.component';
 import { HomeComponent } from './shared/home/home.component';
@@ -24,7 +25,13 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'produto', component: ProdutoComponent },
+      {
+        path: 'produto',
+        children: [
+          { path: '', component: ProductListComponent },
+          { path: 'form', component: ProductFormComponent },
+        ],
+      },
       {
         path: 'material',
         children: [
