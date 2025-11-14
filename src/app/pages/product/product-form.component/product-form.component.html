@@ -1,0 +1,138 @@
+<h2>Formulário de Produto</h2>
+<form [formGroup]="formProduct">
+  <mat-tab-group fitInkBarToContent>
+    <mat-tab label="Dados do Produto">
+
+      <mat-card appearance="outlined" >
+        <mat-card-header>
+          <mat-card-subtitle id="header-register-tab1">Dados do Produto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field id="input-employee-sku" appearance="outline">
+            <mat-label>Código</mat-label>
+            <input required matInput placeholder="123" formControlName="sku" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-name" appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input required matInput placeholder="Pastel de queijo" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-value" appearance="outline">
+            <mat-label>Valor</mat-label>
+            <input required matInput placeholder="12,30" formControlName="value" />
+            <span matTextPrefix>R$&nbsp;</span>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+        <mat-card-header>
+          <mat-card-subtitle id="header-register-tab2">Produto sobe demanda?</mat-card-subtitle>
+        </mat-card-header>
+          <mat-button-toggle-group formControlName="onDemand" name="ondemand" aria-label="Produto sob demanda">
+              <mat-button-toggle value="true">Sim</mat-button-toggle>
+              <mat-button-toggle value="false">Não</mat-button-toggle>
+          </mat-button-toggle-group>
+        </mat-card-content>
+        <mat-card-content style="margin-top: 1%;">
+            <mat-form-field id="input-search-select-producttype" appearance="outline">
+              <mat-label>Tipo de material</mat-label>
+              <mat-select formControlName="productType">
+                @for(product of productTypes; track product) {
+                    <mat-option [value]="product">{{ productTypesLabels[product] }}</mat-option>
+                }
+              </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+
+  </mat-tab>
+  <mat-tab label="Fiscais">
+    <mat-card appearance="outlined" formGroupName="formFiscal">
+        <mat-card-header>
+          <mat-card-subtitle class="header-register-tabs">Dados fiscais do produto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field id="input-employee-ncm" appearance="outline">
+            <mat-label>NCM</mat-label>
+            <input required matInput placeholder="8703.21.00" mask="0000.00.00" formControlName="ncm" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-cest" appearance="outline">
+            <mat-label>CEST</mat-label>
+            <input required matInput placeholder="17.097.00" mask="00.000.00" formControlName="cest" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-origem" appearance="outline">
+            <mat-label>Origem</mat-label>
+            <input required matInput placeholder="BRASIL" formControlName="origem" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-cfop" appearance="outline">
+            <mat-label>CFOP</mat-label>
+            <input required matInput placeholder="5.102" mask="0.000" formControlName="cfop" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-origemType" appearance="outline">
+            <mat-label>Tipo de Origem</mat-label>
+            <input required matInput placeholder="NACIONAL, ESTRANGEIRA" formControlName="origentype" />
+          </mat-form-field>
+          <mat-form-field id="input-employee-cst" appearance="outline">
+            <mat-label>CST</mat-label>
+            <input required matInput placeholder="12,30" formControlName="cst" />
+          </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Composição">
+    
+    <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-subtitle>Composição do produto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content [formGroup]="compositionSelected">
+          <mat-form-field id="input-search-select-producttype" appearance="outline">
+              <mat-label>Material</mat-label>
+              <mat-select formControlName="material">
+                @for(material of listMaterial; track material) {
+                    <mat-option [value]="material">{{ material.name }}</mat-option>
+                }
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field id="input-employee-qtd" appearance="outline">
+            <mat-label>Quantidade</mat-label>
+            <input required type="number" matInput placeholder="10" formControlName="qtd" />
+          </mat-form-field>          
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button matButton="filled" type="submit" (click)="addComposition($event)">
+            Adicionar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      @defer(when listCompositionForProduct().length > 0){
+        <mat-card appearance="outlined">
+          <mat-card-header>
+            <mat-card-subtitle class="header-register">Lista de materias</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content style="max-height: 166px; overflow-y: auto;">
+            <mat-list>
+              @for(material of listCompositionForProduct(); track material) {
+              <mat-list-item
+                >{{ material.material.name }}: {{material.qtd}} und
+                <button matIconButton (click)="excludeMaterial($event, material)" matListItemMeta>
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </mat-list-item>
+              }
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+        }
+
+  </mat-tab>
+
+</mat-tab-group>
+
+
+  <section class="button-redirect-registre">
+      <button mat-raised-button matButton="outlined" type="submit" (click)="goBack()">
+        Voltar
+      </button>
+      <button mat-raised-button matButton="filled" type="submit">Salvar</button>
+  </section>
+</form>
