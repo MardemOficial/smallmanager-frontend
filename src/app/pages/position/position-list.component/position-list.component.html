@@ -1,5 +1,5 @@
 <h2>Lista de cargos</h2>
-<form>
+<form (submit)="searchPosition()">
   <mat-card id="card-search-position" appearance="outlined">
     <mat-card-header id="header-search-position">
       <mat-card-title id="title-search-position"> Pesquisar </mat-card-title>
@@ -18,19 +18,23 @@
 
 @defer (when listPosition.length > 0) {
 <table mat-table [dataSource]="listPosition" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
   <ng-container matColumnDef="label">
     <th mat-header-cell *matHeaderCellDef>Nome</th>
     <td mat-cell *matCellDef="let element">{{ element.label }}</td>
   </ng-container>
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Descrição</th>
+    <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
     <td mat-cell *matCellDef="let element">{{ element.description }}</td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="['label', 'description']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['label', 'description']"></tr>
+  <tr mat-header-row *matHeaderRowDef="['id','label', 'edit']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id','label', 'edit']"></tr>
 </table>
-<mat-paginator [length]="50" [pageSize]="10" [pageSizeOptions]="[5, 10]"> </mat-paginator>
+<mat-paginator [length]="pageCurrent" [pageSize]="sizePage" [pageSizeOptions]="[5, 10]"> </mat-paginator>
 } @placeholder {
 <p>Buscando a lista de cargos!</p>
 }

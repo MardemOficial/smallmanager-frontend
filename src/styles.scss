@@ -83,10 +83,6 @@ input[type='number'] {
   justify-content: end;
 }
 
-form mat-form-field + mat-form-field {
-  margin-left: 8px;
-}
-
 #card-search {
   margin-bottom: 1%;
 }
@@ -95,4 +91,8 @@ form mat-form-field + mat-form-field {
   display: flex;
   justify-content: end;
   margin-top: 1%;
+}
+
+form mat-form-field + mat-form-field {
+  margin-left: 8px;
 }
