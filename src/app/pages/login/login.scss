@@ -8,6 +8,10 @@
     width: 30%;
   }
 
+  form mat-form-field + mat-form-field {
+    margin-left: 0px;
+  }
+
   #header-login {
     display: flex;
     justify-content: center;

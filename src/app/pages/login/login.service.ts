@@ -14,6 +14,9 @@ export class LoginService {
   constructor(private http: HttpClient){}
 
   logar(login: LoginInterface): Observable<LoginInterface>{
-    return this.http.post<LoginInterface>(`${this.API_URL}/authorization/login`, login);
+    return this.http.post<LoginInterface>(`${this.API_URL}/authorization/login`, login, 
+      {
+        withCredentials: true
+      });
   }
 }

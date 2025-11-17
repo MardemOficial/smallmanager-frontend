@@ -29,7 +29,7 @@ import { PaginationClass } from '../../../classes/pagination.class';
   styleUrls: ['./user-list.scss'],
 })
 export class UserListComponent implements OnInit {
-  listUser: UsuarioInterface[] = [{ name: 'Mardem' }];
+  listUser: UsuarioInterface[] = [];
   listUserData!: UsuarioListInterface;
 
   constructor(
@@ -39,18 +39,18 @@ export class UserListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.usuarioService.userList().subscribe((user) => {
-    //   next:  {
-    //     this.listUserData = user as UsuarioListInterface;
-    //     this.listUser = this.listUserData.listUser;
-    //   }
-    //   error: (erro: HttpErrorResponse) => {
-    //       if(erro.status === 401){
-    //         this.snackBar.open("Você não tem permissão de acesso!", "Ok",{duration: 5000});
-    //       } else {
-    //         this.snackBar.open("Erro ao carregar os usuários!","Ok", {duration: 5000})
-    //       }
-    //   }
-    // });
+    this.usuarioService.userList().subscribe((user) => {
+      next:  {
+        this.listUserData = user as UsuarioListInterface;
+        this.listUser = this.listUserData.listUser;
+      }
+      error: (erro: HttpErrorResponse) => {
+          if(erro.status === 401){
+            this.snackBar.open("Você não tem permissão de acesso!", "Ok",{duration: 5000});
+          } else {
+            this.snackBar.open("Erro ao carregar os usuários!","Ok", {duration: 5000})
+          }
+      }
+    });
   }
 }
