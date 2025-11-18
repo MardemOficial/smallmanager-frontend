@@ -15,7 +15,10 @@ import { ProductService } from '../product.service';
 import { CompositionInterface } from '../../../interfaces/composition.interface';
 import { ProductInterface } from '../product.interface';
 import { MaterialsInterface } from '../../materials/materials.interface';
-import { ProductTypeEnum,  PRODUCT_TYPE_LABELS } from '../../../enums/product-type.enum';
+import {
+  ProductOfferingsEnum,
+  PRODUCT_OFFERINGS_LABELS,
+} from '../../../enums/product-offerings.enum';
 
 @Component({
   selector: 'sm-product-form.component',
@@ -35,13 +38,12 @@ import { ProductTypeEnum,  PRODUCT_TYPE_LABELS } from '../../../enums/product-ty
   styleUrl: './product-form.component.scss',
 })
 export class ProductFormComponent {
-
   formProduct = new FormGroup({
     sku: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
     value: new FormControl('', Validators.required),
     onDemand: new FormControl('', Validators.required),
-    productType: new FormControl<ProductTypeEnum | null>(null, Validators.required),
+    productType: new FormControl<ProductOfferingsEnum | null>(null, Validators.required),
     formFiscal: new FormGroup({
       ncm: new FormControl(''),
       cest: new FormControl(''),
@@ -53,10 +55,10 @@ export class ProductFormComponent {
     composition: new FormArray([]),
   });
 
-  productTypes = Object.values(ProductTypeEnum).filter(
+  productTypes = Object.values(ProductOfferingsEnum).filter(
     (v) => typeof v === 'number'
-  ) as ProductTypeEnum[];
-  productTypesLabels = PRODUCT_TYPE_LABELS;
+  ) as ProductOfferingsEnum[];
+  productTypesLabels = PRODUCT_OFFERINGS_LABELS;
 
   listCompositionForProduct = signal<CompositionInterface[]>([]);
   compositionSelected = new FormGroup({
@@ -65,19 +67,18 @@ export class ProductFormComponent {
   });
 
   listMaterial: MaterialsInterface[] = [
-      {id: "1", name: "CALABRESA"},
-      {id: "2", name: "BACON"},
-    ];
-  
+    { id: '1', name: 'CALABRESA' },
+    { id: '2', name: 'BACON' },
+  ];
 
   constructor(private router: Router, private productService: ProductService) {}
 
   save() {
     const product = {
       ...this.formProduct.value,
-      composition: this.listCompositionForProduct()
-    }
-    
+      composition: this.listCompositionForProduct(),
+    };
+
     this.productService.save(product as ProductInterface);
   }
 
@@ -88,8 +89,10 @@ export class ProductFormComponent {
 
     if (!item || !item.material) return;
 
-    if (item && !this.listCompositionForProduct().some((p) => p.material?.id === item.material?.id)) {
-
+    if (
+      item &&
+      !this.listCompositionForProduct().some((p) => p.material?.id === item.material?.id)
+    ) {
       this.listCompositionForProduct.update(
         (old: CompositionInterface[]): CompositionInterface[] => {
           if (!item) return old;
@@ -102,7 +105,6 @@ export class ProductFormComponent {
   }
 
   excludeMaterial(event?: Event, composition?: CompositionInterface) {
-
     event?.preventDefault();
 
     if (!composition?.material) return;

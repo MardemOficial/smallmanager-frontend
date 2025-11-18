@@ -16,6 +16,9 @@ import { EmployeeListComponent } from './pages/employee/employee-list.component/
 import { EmployeeFormComponent } from './pages/employee/employee-form.component/employee-form.component';
 import { MaterialFormComponent } from './pages/materials/material-form.component/material-form.component';
 import { MaterialListComponent } from './pages/materials/material-list.component/material-list.component';
+import { InventoryFormComponent } from './pages/inventory/inventory-form.component/inventory-form.component';
+import { InventoryListComponent } from './pages/inventory/inventory-list.component/inventory-list.component';
+import { InventoryBalanceComponent } from './pages/inventory/inventory-balance.component/inventory-balance.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -26,7 +29,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       {
-        path: 'produto',
+        path: 'product',
         children: [
           { path: '', component: ProductListComponent },
           { path: 'form', component: ProductFormComponent },
@@ -37,6 +40,14 @@ export const routes: Routes = [
         children: [
           { path: '', component: MaterialListComponent },
           { path: 'form', component: MaterialFormComponent },
+        ],
+      },
+      {
+        path: 'inventory',
+        children: [
+          { path: '', component: InventoryListComponent },
+          { path: 'form', component: InventoryFormComponent },
+          { path: 'balance', component: InventoryBalanceComponent },
         ],
       },
       {
