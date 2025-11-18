@@ -16,14 +16,14 @@
   <mat-menu #gerenciaDeMaterias="matMenu" xPosition="before">
     <button mat-menu-item routerLink="product"><mat-icon>shopping_bag</mat-icon>Produtos</button>
     <button mat-menu-item routerLink="material"><mat-icon>pallet</mat-icon> Materiais </button>
-    <button mat-menu-item [matMenuTriggerFor]="inventory" routerLink="inventory">
+    <button mat-menu-item [matMenuTriggerFor]="inventory">
       <mat-icon>warehouse</mat-icon>Estoque
     </button>
   </mat-menu>
   
   <mat-menu #inventory="matMenu" xPosition="before">
-    <button mat-menu-item routerLink="form"><mat-icon>sync_alt</mat-icon>Movimentações</button>
-    <button mat-menu-item routerLink="balance"><mat-icon>analytics</mat-icon>Estoque atual</button>
+    <button mat-menu-item routerLink="inventory"><mat-icon>sync_alt</mat-icon>Movimentações</button>
+    <button mat-menu-item routerLink="inventory/balance"><mat-icon>analytics</mat-icon>Estoque atual</button>
   </mat-menu>
 
   <mat-menu #rh="matMenu" xPosition="before">
