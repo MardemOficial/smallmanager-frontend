@@ -1,14 +1,42 @@
-<h2>Lista de Estoque</h2>
-<form>
+<h2>Movimentação do Estoque</h2>
+<form [formGroup]="inventoryForm">
   <mat-card id="card-search-inventory" appearance="outlined">
     <mat-card-header id="header-search-inventory">
       <mat-card-title id="title-search-inventory"> Pesquisar </mat-card-title>
     </mat-card-header>
     <mat-card-content style="height: 10px">
+      
+      <mat-form-field id="input-search-select-movementtype" appearance="outline">
+          <mat-label>Tipo de Operação</mat-label>
+          <mat-select formControlName="movementType">
+            @for(movemnttype of movenentType; track movemnttype) {
+                <mat-option [value]="movemnttype">{{ movementTypesLabels[movemnttype] }}</mat-option>
+            }
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field id="input-search-select-movementtype" appearance="outline">
+        <mat-label>Tipo de Origem</mat-label>
+        <mat-select formControlName="movementSource">
+          @for(movemntsource of movenentSource; track movemntsource) {
+              <mat-option [value]="movemntsource">{{ movementSourceLabels[movemntsource] }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+       <mat-form-field id="input-search-select-type" appearance="outline">
+        <mat-label>Tipo de item</mat-label>
+        <mat-select formControlName="type">
+          @for(inventoryItem of inventoryItemTypeEnum; track inventoryItem) {
+              <mat-option [value]="inventoryItem">{{ inventoryItemTypeLabels[inventoryItem] }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
       <mat-form-field id="input-search-inventory" appearance="outline">
         <mat-label> Item do estoque </mat-label>
-        <input matInput placeholder="Vale Transporte" />
+        <input matInput placeholder="Pizza" formControlName="label" />
       </mat-form-field>
+
     </mat-card-content>
     <mat-card-actions id="button-search-inventory">
       <button mat-raised-button matButton="filled" type="submit">Pesquisar</button>
@@ -44,7 +72,7 @@
 }
 
 <section>
-  <div class="button-redirect-search-inventory">
+  <div class="button-redirect-registre">
     <a matButton="filled" routerLink="form">Cadastrar</a>
   </div>
 </section>
