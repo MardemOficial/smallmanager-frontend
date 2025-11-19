@@ -19,6 +19,8 @@ import { MaterialListComponent } from './pages/materials/material-list.component
 import { InventoryFormComponent } from './pages/inventory/inventory-form.component/inventory-form.component';
 import { InventoryListComponent } from './pages/inventory/inventory-list.component/inventory-list.component';
 import { InventoryBalanceComponent } from './pages/inventory/inventory-balance.component/inventory-balance.component';
+import { CashflowListComponent } from './pages/cashflow/cashflow-list.component/cashflow-list.component';
+import { CashflowFormComponent } from './pages/cashflow/cashflow-form.component/cashflow-form.component';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -28,6 +30,13 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'cashflow',
+        children: [
+          { path: '', component: CashflowListComponent },
+          { path: 'form', component: CashflowFormComponent },
+        ],
+      },
       {
         path: 'product',
         children: [
