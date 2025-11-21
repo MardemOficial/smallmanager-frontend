@@ -1,5 +1,5 @@
 <nav class="menu">
-  <button matButton [matMenuTriggerFor]="vendas"><mat-icon>point_of_sale</mat-icon> PDV </button>
+  <button matButton [matMenuTriggerFor]="sales"><mat-icon>point_of_sale</mat-icon> PDV </button>
   <button matButton [matMenuTriggerFor]="gerenciaDeMaterias">
     <mat-icon>shopping_bag</mat-icon> Produtos
   </button>
@@ -7,8 +7,8 @@
   <button matButton routerLink="dashboard"><mat-icon>analytics</mat-icon> Relatórios </button>
   <button matButton><mat-icon>settings</mat-icon> Configurações</button>
 
-  <mat-menu #vendas="matMenu" xPosition="before">
-    <button mat-menu-item><mat-icon>shopping_cart</mat-icon> Pedido</button>
+  <mat-menu #sales="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="sales"><mat-icon>shopping_cart</mat-icon> Pedido</button>
     <button mat-menu-item><mat-icon>person_add</mat-icon> Cadastrar Cliente </button>
     <button mat-menu-item routerLink="cashflow"><mat-icon>point_of_sale</mat-icon> Caixa </button>
   </mat-menu>
