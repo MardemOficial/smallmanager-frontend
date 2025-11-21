@@ -15,7 +15,7 @@ export class PositionService {
     constructor(private http: HttpClient){}
 
     positionList(page: number = 0): Observable<PositionListInterface>{
-      return this.http.get<PositionListInterface>(`${this.API_URL}/profile`, {
+      return this.http.get<PositionListInterface>(`${this.API_URL}/position`, {
         params:
          {
            page: page
@@ -27,7 +27,7 @@ export class PositionService {
     }
 
     positionSearch(label: string, page: number = 0): Observable<PositionListInterface>{
-      return this.http.get<PositionListInterface>(`${this.API_URL}/profile/search`,
+      return this.http.get<PositionListInterface>(`${this.API_URL}/position/search`,
         {
         params: {
           label: label,
