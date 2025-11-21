@@ -1,5 +1,5 @@
 <h2>Formulário de benefícios</h2>
-<form [formGroup]="benefitGroup">
+<form [formGroup]="benefitGroup" (submit)="save($event)">
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title class="header-register-benefit">Dados do benefício</mat-card-title>
@@ -7,11 +7,11 @@
     <mat-card-content>
       <mat-form-field id="input-benefit-name" appearance="outline">
         <mat-label>Nome</mat-label>
-        <input required matInput placeholder="Vale transporte" formControlName="name" />
+        <input required matInput placeholder="Vale-transporte" formControlName="name" />
       </mat-form-field>
       <mat-form-field id="input-benefit-value" appearance="outline">
         <mat-label>Valor</mat-label>
-        <input required matInput placeholder="150,30" formControlName="value"/>
+        <input required matInput type="number" placeholder="150,30" formControlName="value"/>
         <span matTextPrefix>R$&nbsp;</span>
       </mat-form-field>
       <mat-form-field id="input-benefit-description" appearance="outline">
