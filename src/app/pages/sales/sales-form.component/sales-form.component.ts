@@ -15,8 +15,6 @@ import { PaymentTypeEnum, PAYMENT_TYPE_LABEL } from '../../../enums/payment-type
 import { SALES_STATUS_LABELS, SalesStatusEnum } from '../sales-status.enum';
 import { SalesService } from '../sales.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { DeliveryInterface } from '../delivery.interface';
-import { InStoreInterface } from '../in-store.interface';
 
 @Component({
   selector: 'sm-sales-form.component',
@@ -53,8 +51,8 @@ export class SalesFormComponent {
   ];
   salesStatusLabels = SALES_STATUS_LABELS;
 
-  listSalesItemInStore = signal<InStoreInterface[]>([]);
-  listSalesItemDelivery = signal<DeliveryInterface[]>([]);
+  listSalesItemInStore = signal<SalesItemInterface[]>([]);
+  listSalesItemDelivery = signal<SalesItemInterface[]>([]);
 
   orderInStoryForm = new FormGroup({});
   orderDeliverForm = new FormGroup({});
@@ -82,9 +80,9 @@ export class SalesFormComponent {
     if (!item || !item.id) return;
 
     if (item && !this.listSalesItemInStore().some((p) => p.id === item.id)) {
-      this.listSalesItemInStore.update((old: InStoreInterface[]): InStoreInterface[] => {
+      this.listSalesItemInStore.update((old: SalesItemInterface[]): SalesItemInterface[] => {
         if (!item) return old;
-        return [...old, item as InStoreInterface];
+        return [...old, item as SalesItemInterface];
       });
 
       this.orderInStoryForm.reset();
@@ -99,16 +97,16 @@ export class SalesFormComponent {
     if (!item || !item.id) return;
 
     if (item && !this.listSalesItemDelivery().some((p) => p.id === item.id)) {
-      this.listSalesItemDelivery.update((old: DeliveryInterface[]): DeliveryInterface[] => {
+      this.listSalesItemDelivery.update((old: SalesItemInterface[]): SalesItemInterface[] => {
         if (!item) return old;
-        return [...old, item as DeliveryInterface];
+        return [...old, item as SalesItemInterface];
       });
 
       this.orderDeliverForm.reset();
     }
   }
 
-  excludeInStore(event?: Event, salesItem?: InStoreInterface) {
+  excludeInStore(event?: Event, salesItem?: SalesItemInterface) {
     event?.preventDefault();
 
     if (!salesItem?.id) return;
@@ -118,7 +116,7 @@ export class SalesFormComponent {
     }
   }
 
-  excludeDelivery(event?: Event, salesItem?: DeliveryInterface) {
+  excludeDelivery(event?: Event, salesItem?: SalesItemInterface) {
     event?.preventDefault();
 
     if (!salesItem?.id) return;
