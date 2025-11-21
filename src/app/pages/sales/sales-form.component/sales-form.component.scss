@@ -1,0 +1,9 @@
+#pay-info, #info-delivery{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    #pay, #info, #info-order, #info-custumer{
+        width: 100%;
+    }
+}

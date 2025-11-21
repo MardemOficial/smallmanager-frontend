@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth-guard';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductFormComponent } from './pages/product/product-form.component/product-form.component';
@@ -21,7 +22,8 @@ import { InventoryListComponent } from './pages/inventory/inventory-list.compone
 import { InventoryBalanceComponent } from './pages/inventory/inventory-balance.component/inventory-balance.component';
 import { CashflowListComponent } from './pages/cashflow/cashflow-list.component/cashflow-list.component';
 import { CashflowFormComponent } from './pages/cashflow/cashflow-form.component/cashflow-form.component';
-import { authGuard } from './guards/auth-guard';
+import { SalesListComponent } from './pages/sales/sales-list.component/sales-list.component';
+import { SalesFormComponent } from './pages/sales/sales-form.component/sales-form.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,6 +32,13 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
+        {
+        path: 'sales',
+        children: [
+          { path: '', component: SalesListComponent },
+          { path: 'form', component: SalesFormComponent },
+        ],
+      },
       {
         path: 'cashflow',
         children: [

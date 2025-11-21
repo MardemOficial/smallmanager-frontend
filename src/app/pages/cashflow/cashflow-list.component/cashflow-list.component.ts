@@ -12,7 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PaginationClass } from '../../../classes/pagination.class';
 import { PaginationListClass } from '../../../classes/pagination-list.class';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { provideNgxMask } from 'ngx-mask';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { CashflowTypeEnum, CASHFLOW_TYPE_LABELS } from '../../../enums/cashflow-type.enum';
 import { CashflowInterface } from '../cashflow.interface';
@@ -30,7 +30,6 @@ import { CashflowInterface } from '../cashflow.interface';
     MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    NgxMaskDirective,
   ],
   templateUrl: './cashflow-list.component.html',
   styleUrl: './cashflow-list.component.scss',
