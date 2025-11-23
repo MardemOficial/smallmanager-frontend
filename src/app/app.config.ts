@@ -1,11 +1,11 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { PaginationClass } from './classes/pagination.class';
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
-
 import { routes } from './app.routes';
+import { erroHandlerInterceptor } from './interceptor/erro-handler-interceptor';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([erroHandlerInterceptor])),
     { provide: MatPaginatorIntl, useClass: PaginationClass },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
