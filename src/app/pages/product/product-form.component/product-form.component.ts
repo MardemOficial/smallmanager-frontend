@@ -66,10 +66,7 @@ export class ProductFormComponent {
     material: new FormControl<MaterialsInterface | null>(null),
   });
 
-  listMaterial: MaterialsInterface[] = [
-    { id: '1', name: 'CALABRESA' },
-    { id: '2', name: 'BACON' },
-  ];
+  listMaterial: MaterialsInterface[] = [];
 
   constructor(private router: Router, private productService: ProductService) {}
 

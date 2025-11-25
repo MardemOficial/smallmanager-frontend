@@ -31,26 +31,10 @@ export class LoginComponent {
   });
 
   onSubmit() {
-    console.log(this.loginForm.value);
-
     this.login = this.loginForm.value as LoginInterface;
 
-    this.loginService.logar(this.login).subscribe({
-      next: (response) => {
+    this.loginService.logar(this.login).subscribe(() =>{
         this.router.navigate(['/home']);
-      },
-      error: (erro) => {
-        let message;
-        if(erro.error[0].message != undefined){
-          message = erro.error[0].message;
-        }else{
-          message = erro.error;
-        }
-
-        console.log(`${message}`);
-        this.snackBar.open(`${message}`, "Ok", {duration: 5000});
-      }
     })
-
   }
 }

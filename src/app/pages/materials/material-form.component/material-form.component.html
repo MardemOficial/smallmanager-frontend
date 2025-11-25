@@ -1,5 +1,5 @@
 <h2>Formulário de Material</h2>
-<form [formGroup]="materialGroup">
+<form [formGroup]="materialGroup" (submit)="save($event)">
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title id="header-register">Dados do material</mat-card-title>
@@ -7,7 +7,7 @@
     <mat-card-content>
       <mat-form-field id="input-material-sku" appearance="outline">
         <mat-label>Código</mat-label>
-        <input required matInput placeholder="INSS" formControlName="sku" />
+        <input required matInput placeholder="0123" formControlName="sku" />
       </mat-form-field>
       <mat-form-field id="input-material-name" appearance="outline">
         <mat-label>Nome</mat-label>
@@ -15,30 +15,43 @@
       </mat-form-field>
       <mat-form-field id="input-material-cost" appearance="outline">
         <mat-label>Custo</mat-label>
-        <input required matInput placeholder="10,30" formControlName="cost" />
+        <input required type="number" matInput placeholder="10,30" formControlName="cost" />
         <span matTextPrefix>R$&nbsp;</span>
       </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
       <mat-form-field id="input-search-select-material" appearance="outline">
         <mat-label>Tipo de material</mat-label>
-        <mat-select formControlName="typeMaterial">
+        <mat-select formControlName="materialTypeEnum">
           @for(material of materialTypes; track material) {
           <mat-option [value]="material">{{ materialTypeLabels[material] }}</mat-option>
           }
         </mat-select>
       </mat-form-field>
+      <mat-form-field id="input-search-select-type-unit" appearance="outline">
+        <mat-label>Tipo de unidade</mat-label>
+        <mat-select formControlName="unitOfMeasureTypeEnum">
+          @for(unittype of unitOfMeansureType; track unittype) {
+          <mat-option [value]="unittype">{{ unitOfMeansureTypeLabels[unittype] }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
       <mat-form-field id="input-material-unitaryValue" appearance="outline">
         <mat-label>Unidade de medida</mat-label>
-        <input required matInput placeholder="Previdência" formControlName="unitaryValue" />
+        <input required matInput placeholder="und" formControlName="unitValue" />
       </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
       <mat-form-field id="input-material-description" appearance="outline">
         <mat-label>Descrição</mat-label>
-        <input required matInput placeholder="Previdência" formControlName="description" />
+        <textarea required matInput placeholder="Materials em geral" formControlName="description"></textarea>
       </mat-form-field>
     </mat-card-content>
   </mat-card>
 
   <section>
-    <div class="button-redirect-search-material">
+    <div class="button-redirect-registre">
       <button mat-raised-button matButton="outlined" type="submit" (click)="goBack()">
         Voltar
       </button>
